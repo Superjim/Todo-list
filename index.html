@@ -10,6 +10,37 @@
     <title>To-do List</title>
 </head>
 
-<body></body>
+<body>
+    <div class="addTaskModal" id="addTaskModal">
+        <div class="modalHeader">
+            <h2>Add Task</h2>
+            <div class="close" id="closeModal">&times;</div>
+        </div>
+        <div class="modalBody">
+            <p>temporary text</p>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="priority" id="undefined">
+            <h2>Undefined</h2>
+            <button id="addTask">Add Task</button>
+            <div class="task" draggable="true">
+                <p>Practise aim against bots</p>
+                <div class="close">&times;</div>
+            </div>
+        </div>
+
+        <div class="priority" id="not-started">
+            <h2>Not Started</h2>
+        </div>
+        <div class="priority" id="started">
+            <h2>Started</h2>
+        </div>
+        <div class="priority" id="finished">
+            <h2>Finished</h2>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</body>
 
 </html>

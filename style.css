@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+:root {
+  --darkGreen: #588c7e;
+  --lightGreen: #96ceb4;
+  --darkRed: #d96459;
+  --lightRed: #ff6f69;
+  --darkOrange: #f2ae72;
+  --lightOrange: #ffcc5c;
+  --darkYellow: #f2e394;
+  --lightYellow: #ffeead;
+  --darkSlate: #292f33;
+  --slate: #66757f;
+  --lightSlate: #ccd6dd;
+  --skyBlue: #e1e8ed;
+  --lightSkyBlue: #f7f7f7;
+  --white: #ffffff;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: var(--lightSkyBlue);
+}
+
+.main-container {
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.main-container > * {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.priority {
+  width: 25%;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.priority > h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  padding: 1rem 0rem 1rem 0rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.priority {
+  background-color: var(--slate);
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+
+#undefined > h2 {
+  background-color: var(--darkSlate);
+}
+
+.priority:nth-child(2) {
+  background-color: var(--lightRed);
+}
+
+#not-started > h2 {
+  background-color: var(--darkRed);
+  color: var(--darkSlate);
+}
+
+.priority:nth-child(3) {
+  background-color: var(--lightYellow);
+}
+
+#started > h2 {
+  background-color: var(--darkYellow);
+  color: var(--darkSlate);
+}
+
+.priority:nth-child(4) {
+  background-color: var(--lightGreen);
+}
+
+#finished > h2 {
+  background-color: var(--darkGreen);
+  color: var(--darkSlate);
+}
+
+#addTask {
+  padding: 0.5rem;
+  border: 0;
+  transition: all 0.3s;
+  background-color: var(--lightSkyBlue);
+}
+
+#addTask:hover {
+  background-color: var(--skyBlue);
+  transition: all 0.3s;
+}
+
+#addTask,
+.task {
+  position: relative;
+  background-color: var(--lightSkyBlue);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.5rem;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.task:hover {
+  background-color: var(--skyBlue);
+  transition: all 0.3s;
+}
+
+.task > * {
+  padding: 0.5rem;
+}
+
+.close {
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--slate);
+}
+
+.close:hover {
+  color: var(--darkSlate);
+}
+
+.modalHeader {
+  display: flex;
+  width: 100%-2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--darkSlate);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  color: var(--white);
+  padding: 0 1rem 0 1rem;
+}
+
+#closeModal:hover {
+  color: white;
+  transition: all 0.3s;
+}
+
+.modalBody {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.addTaskModal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 40rem;
+  height: 20rem;
+  background-color: var(--lightSkyBlue);
+  color: var(--darkSlate);
+  transition: top 0.3s ease-in-out;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.addTaskModal:target {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
