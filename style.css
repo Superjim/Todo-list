@@ -107,6 +107,7 @@ body {
 }
 
 #addTask,
+#addTaskSubmit,
 .task {
   position: relative;
   background-color: var(--lightSkyBlue);
@@ -119,9 +120,11 @@ body {
   cursor: pointer;
   transition: all 0.3s;
   font-size: 1rem;
+  border: 0;
 }
 
-.task:hover {
+.task:hover,
+#addTaskSubmit:hover {
   background-color: var(--skyBlue);
   transition: all 0.3s;
 }
@@ -159,6 +162,26 @@ body {
 
 .modalBody {
   padding: 0 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem;
+  flex-wrap: wrap;
+}
+
+#addTaskDescInput,
+#addTaskTitleInput {
+  font-size: 1.5rem;
+}
+
+#addTaskDescInput {
+  height: 156px;
+}
+
+.modalButtonContainer {
+  display: flex;
+  gap: 1rem;
 }
 
 .addTaskModal {

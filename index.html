@@ -14,10 +14,14 @@
     <div class="addTaskModal" id="addTaskModal">
         <div class="modalHeader">
             <h2>Add Task</h2>
-            <div class="close" id="closeModal">&times;</div>
+            <div class="modalButtonContainer">
+                <input type="submit" value="Add Task" id="addTaskSubmit" />
+                <div class="close" id="closeModal">&times;</div>
+            </div>
         </div>
         <div class="modalBody">
-            <p>temporary text</p>
+            <input type="text" placeholder="Task Title" id="addTaskTitleInput" />
+            <input type="text" placeholder="Task Description" id="addTaskDescInput" />
         </div>
     </div>
     <div class="main-container">
