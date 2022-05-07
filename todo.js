@@ -18,7 +18,9 @@ function dragStart() {
   dragTask = this;
 }
 
-function dragEnd() {}
+function dragEnd() {
+  dragTask = null;
+}
 
 function dragOver(e) {
   e.preventDefault();
@@ -52,14 +54,44 @@ addTaskButton.onclick = function () {
   overlay.style.display = "block";
 };
 
+//exit modal on click button
 closeModal.onclick = function () {
   addTaskModal.style.display = "none";
   overlay.style.display = "none";
 };
 
-// //doesnt work
-// window.onclick = function (event) {
-//   if (event.target === addTaskModal) {
-//     addTaskModal.style.display = "none";
-//   }
-// };
+//exit modal on click overlay
+window.onclick = function (event) {
+  if (event.target === overlay) {
+    addTaskModal.style.display = "none";
+    overlay.style.display = "none";
+  }
+};
+
+//add new task event listener
+const addTaskSubmitButton = document.getElementById("addTaskSubmit");
+
+addTaskSubmitButton.onclick = function () {
+  //add new task
+  const newTaskContainer = document.createElement("div");
+  const close = document.getElementById("taskCloseButton");
+  const closeClone = close.cloneNode(true);
+  const undefined = document.getElementById("undefined");
+
+  const taskTitleContent = document.getElementById("addTaskTitleInput").value;
+  const taskDescContent = document.getElementById("addTaskDescInput").value;
+
+  const taskTitleText = document.createElement("p");
+  const taskDescText = document.createElement("p");
+
+  taskTitleText.innerText += taskTitleContent;
+  taskDescText.innerText += taskDescContent;
+
+  newTaskContainer.appendChild(taskTitleText);
+  newTaskContainer.appendChild(taskDescText);
+  newTaskContainer.appendChild(closeClone);
+  newTaskContainer.classList.add("task");
+  newTaskContainer.setAttribute("draggable", "true");
+
+  undefined.append(newTaskContainer);
+};
