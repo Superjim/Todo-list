@@ -2,6 +2,7 @@ const task = document.querySelectorAll(".task");
 const priorities = document.querySelectorAll(".priority");
 var dragTask = null;
 
+//unused
 task.forEach((task) => {
   task.addEventListener("dragstart", dragStart);
   task.addEventListener("dragend", dragEnd);
@@ -77,9 +78,11 @@ addTaskSubmitButton.onclick = function () {
   const closeClone = close.cloneNode(true);
   const undefined = document.getElementById("undefined");
 
+  //get content from modal forms
   const taskTitleContent = document.getElementById("addTaskTitleInput").value;
   const taskDescContent = document.getElementById("addTaskDescInput").value;
 
+  //create new elements and add to container
   const taskTitleText = document.createElement("p");
   const taskDescText = document.createElement("p");
 
@@ -92,12 +95,18 @@ addTaskSubmitButton.onclick = function () {
   newTaskContainer.classList.add("task");
   newTaskContainer.setAttribute("draggable", "true");
 
+  //event listeners
   newTaskContainer.addEventListener("dragstart", dragStart);
   newTaskContainer.addEventListener("dragend", dragEnd);
+  closeClone.addEventListener("click", removeTask);
 
   undefined.append(newTaskContainer);
 
   //probably make a function for this
   addTaskModal.style.display = "none";
   overlay.style.display = "none";
+
+  function removeTask() {
+    newTaskContainer.style.display = "none";
+  }
 };
