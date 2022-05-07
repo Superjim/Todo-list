@@ -28,7 +28,6 @@ function dragOver(e) {
 
 function dragEnter() {
   //change the current targets opacity to show where object will land
-
   this.style.opacity = 0.5;
 }
 
@@ -93,5 +92,12 @@ addTaskSubmitButton.onclick = function () {
   newTaskContainer.classList.add("task");
   newTaskContainer.setAttribute("draggable", "true");
 
+  newTaskContainer.addEventListener("dragstart", dragStart);
+  newTaskContainer.addEventListener("dragend", dragEnd);
+
   undefined.append(newTaskContainer);
+
+  //probably make a function for this
+  addTaskModal.style.display = "none";
+  overlay.style.display = "none";
 };
